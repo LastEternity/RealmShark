@@ -25,6 +25,7 @@ import packets.data.enums.StatType;
 import packets.incoming.MapInfoPacket;
 import tomato.backend.data.Entity;
 import tomato.backend.data.TomatoData;
+import tomato.realmshark.enums.CharacterClass;
 import util.PropertiesManager;
 
 public class SendLoot {
@@ -682,6 +683,8 @@ public class SendLoot {
     }
 
     private static void enqueueTrackedItem(
+        TomatoData data,
+        Entity player,
         int itemId,
         ParsedItem item,
         Entity bag,
@@ -710,6 +713,28 @@ public class SendLoot {
         payload.addProperty("item_name", item.baseName);
         payload.addProperty("shiny", item.shiny);
         payload.addProperty("item_id", itemId);
+
+        int characterId = -1;
+        if (data != null) {
+            characterId = data.getCharId();
+        }
+        if (characterId > 0) {
+            payload.addProperty("character_id", characterId);
+        }
+
+        if (player != null) {
+            String characterName = player.name();
+            if (characterName != null && !characterName.isEmpty()) {
+                payload.addProperty("character_name", characterName);
+            }
+
+            if (CharacterClass.isPlayerCharacter(player.objectType)) {
+                String characterClass = CharacterClass.getName(player.objectType);
+                if (characterClass != null && !characterClass.isEmpty()) {
+                    payload.addProperty("character_class", characterClass);
+                }
+            }
+        }
 
         String group = IdToAsset.getIdGroup(itemId);
         if (group != null && !group.isEmpty()) payload.addProperty("item_group", group);
@@ -880,7 +905,7 @@ public class SendLoot {
 
             if (tracked) {
                 info("Sending " + parsed.rawName + " to PPE Bot.");
-                enqueueTrackedItem(itemId, parsed, bag, i, isSeasonal, lootDrop, dungeon);
+                enqueueTrackedItem(data, player, itemId, parsed, bag, i, isSeasonal, lootDrop, dungeon);
                 publishBridgeEvent(parsed.rawName, dungeon, true);
                 continue;
             }
