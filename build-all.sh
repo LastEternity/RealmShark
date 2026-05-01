@@ -258,7 +258,7 @@ if [ $EXIT_CODE -eq 0 ]; then
     echo ""
     echo "Next steps:"
     echo "  • Test RealmShark: java -jar RealmShark/build/libs/RealmShark-v*.jar"
-    echo "  • Test Tomato: java -jar Tomato/build/libs/Tomato-v*.jar"
+    echo "  • Test Tomato: java -jar Tomato/build/libs/PPE-Sniffer-v*.jar"
     echo "  • Check build log: cat $BUILD_LOG"
 else
     log_error "Build process failed. Check $BUILD_LOG for details."

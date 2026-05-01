@@ -15,7 +15,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 public class CheckVersion {
-    private static final String GITHUB_API_URL = "https://api.github.com/repos/X-com/RealmShark/releases";
+    private static final String GITHUB_API_URL = "https://api.github.com/repos/LastEternity/RealmShark/releases";
 
     private static String getLatestVersion() throws IOException {
         URL url = new URL(GITHUB_API_URL);
@@ -58,7 +58,7 @@ public class CheckVersion {
                 }
 
                 if (target != null && version != null) {
-                    if (target.equals("tomato")) return version;
+                    if (target.equals("tomato_integration")) return version;
                 }
             }
         }
@@ -76,11 +76,11 @@ public class CheckVersion {
     }
 
     private static void updateMessage() {
-        JEditorPane ep = new JEditorPane("text/html", "<html>Outdated Tomato version<br>Download the latest version and replace the Tomato-v.xx.jar<br><a href=\\\\\\\"\"https://github.com/X-com/RealmShark/releases\\\\\\\">https://github.com/X-com/RealmShark/releases</a></html>");
+        JEditorPane ep = new JEditorPane("text/html", "<html>Outdated Tomato version<br>Download the latest version and replace the PPE-Tomato-v.xx.jar<br><a href=\\\"\"https://github.com/LastEternity/RealmShark/releases\\\">https://github.com/LastEternity/RealmShark/releases</a></html>");
         ep.addHyperlinkListener(e -> {
             if (e.getEventType().equals(HyperlinkEvent.EventType.ACTIVATED)) {
                 try {
-                    Desktop.getDesktop().browse(new URI("https://github.com/X-com/RealmShark/releases"));
+                    Desktop.getDesktop().browse(new URI("https://github.com/LastEternity/RealmShark/releases"));
                 } catch (IOException | URISyntaxException ex) {
                     ex.printStackTrace();
                 }

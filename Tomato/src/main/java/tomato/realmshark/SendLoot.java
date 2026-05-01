@@ -438,26 +438,9 @@ public class SendLoot {
             shinyFromNameSuffix = true;
         }
 
-        base = stripRarityDecorators(base);
-
         boolean shiny = shinyFromNameSuffix || hasMetadataToken(itemId, "SHINY");
         boolean divine = hasMetadataToken(itemId, "DIVINE") || nameHasToken(base, "DIVINE");
         return new ParsedItem(trimmed, base, shiny, divine);
-    }
-
-    private static String stripRarityDecorators(String name) {
-        if (name == null) return "";
-
-        String s = name.trim();
-        if (s.isEmpty()) return s;
-
-        // Handle forms like "Rare Corsair Ring" and "Uncommon: Corsair Ring".
-        s = s.replaceFirst("(?i)^\\s*(common|uncommon|rare|legendary|divine)\\s*[:-]?\\s+", "");
-
-        // Handle forms like "Corsair Ring (Rare)".
-        s = s.replaceFirst("(?i)\\s*\\((common|uncommon|rare|legendary|divine)\\)\\s*$", "");
-
-        return s.trim();
     }
 
     private static boolean isRarityToken(String token) {

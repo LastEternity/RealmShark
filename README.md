@@ -64,7 +64,7 @@ This will:
 
 **Output**:
 - `RealmShark/build/libs/RealmShark-v1.2.2.jar` (3.2 MB)
-- `Tomato/build/libs/Tomato-v1.9.2.jar` (8.7 MB)
+- `Tomato/build/libs/PPE-Sniffer-v1.0.jar` (8.7 MB)
 
 ### 2. Run Applications
 
@@ -217,7 +217,7 @@ git log --oneline -5
 **Branch**: `tomato_integration`  
 **Purpose**: GUI application showing **11 tabs** with monitoring capabilities  
 **Output**: 
-- `Tomato-v1.9.2.jar` (8.7 MB, includes embedded RealmShark JAR)
+- `PPE-Sniffer-v1.0.jar` (8.7 MB, includes embedded RealmShark JAR)
 
 **Key Code**:
 - `src/main/java/tomato/Tomato.java` - Main application entry
@@ -254,7 +254,7 @@ RealmShark (realmshark branch)
                 └─ Tomato (tomato_integration branch)
                    │
                    └─ ./gradlew clean shadowJar
-                      └─ Produces: Tomato-v1.9.2.jar
+                      └─ Produces: PPE-Sniffer-v1.0.jar
                          (With embedded RealmShark JAR)
 ```
 
@@ -269,7 +269,7 @@ RealmShark (realmshark branch)
 
 3. **Tomato** builds next
    - Uses `libs/RealmShark-v1.2.2.jar` as dependency
-   - Creates `Tomato-v1.9.2.jar` (8.7 MB)
+   - Creates `PPE-Sniffer-v1.0.jar` (8.7 MB)
    - Final JAR includes all dependencies (embedded)
 
 ---
@@ -281,7 +281,7 @@ After building, verify everything is working:
 ```bash
 # Check JAR files exist
 ls -lh RealmShark/build/libs/RealmShark-*.jar
-ls -lh Tomato/build/libs/Tomato-*.jar
+ls -lh Tomato/build/libs/PPE-Sniffer-*.jar
 
 # Check dependencies were copied
 ls -lh RealmShark/libs/RealmShark-*.jar
