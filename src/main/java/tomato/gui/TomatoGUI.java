@@ -20,6 +20,8 @@ import tomato.gui.quest.QuestGUI;
 import tomato.gui.security.ParsePanelGUI;
 import tomato.gui.security.SecurityGUI;
 import tomato.gui.stats.DungeonStats;
+import tomato.gui.stats.BridgeLogGUI;
+import tomato.gui.stats.BridgeReviewGUI;
 import tomato.gui.stats.StatisticsGUI;
 import tomato.version.Version;
 import util.PropertiesManager;
@@ -81,6 +83,9 @@ public class TomatoGUI {
 
         dpsPanel = new DpsGUI(data);
         tabbedPane.addTab("DPS Logger", dpsPanel);
+
+        tabbedPane.addTab("Bridge Review", new BridgeReviewGUI());
+        tabbedPane.addTab("Bridge Logs", new BridgeLogGUI());
 
         center =
             GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
@@ -227,6 +232,8 @@ public class TomatoGUI {
         DpsGUI.editFont(font);
         ParsePanelGUI.editFont(font);
         DungeonStats.editFont(font);
+        BridgeLogGUI.editFont(font);
+        BridgeReviewGUI.editFont(font);
     }
 
     /**
@@ -241,6 +248,8 @@ public class TomatoGUI {
         DpsGUI.editFont(font);
         ParsePanelGUI.editFont(font);
         DungeonStats.editFont(font);
+        BridgeLogGUI.editFont(font);
+        BridgeReviewGUI.editFont(font);
     }
 
     /**
@@ -298,5 +307,12 @@ public class TomatoGUI {
      */
     public static void openEnchantPing() {
         EnchantPingGUI.open();
+    }
+
+    /**
+     * Opens dungeon ping window.
+     */
+    public static void openDungeonPing() {
+        DungeonPingGUI.open();
     }
 }

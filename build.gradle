@@ -6,9 +6,8 @@ plugins {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-project.version = 'v1.0'
+project.version = 'v1.9.2'
 applicationName = 'Tomato'
-archiveAppName = 'PPE-Sniffer'
 
 project.ext.lwjglVersion = "3.3.1"
 project.ext.jomlVersion = "1.10.5"
@@ -29,9 +28,8 @@ repositories {
 }
 
 dependencies {
-    implementation files("libs/RealmShark-v1.2.2.jar")
+    implementation files("libs/RealmShark-v1.2.3.jar")
     implementation 'com.github.weisj:darklaf-core:3.0.2'
-    implementation 'org.java-websocket:Java-WebSocket:1.5.3'
     runtimeOnly 'org.slf4j:slf4j-nop:2.0.17'
 }
 
@@ -73,7 +71,7 @@ shadowJar {
     manifest {
         attributes 'Main-Class': mainClassName
     }
-    archiveFileName = "${archiveAppName}-${project.version}.jar"
+    archiveFileName = "${applicationName}-${project.version}.jar"
 }
 
 apply plugin: 'com.github.johnrengelman.shadow'
