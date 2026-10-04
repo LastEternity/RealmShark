@@ -3,6 +3,14 @@
 
 RealmShark is a Java library/program created to read network packets at the kernel level without the the ability to modify, block or send packets. The library is EULA/copyright compliant because it does not use any game code or assets.  
 
+## PPE-Tomato fork builds
+
+This fork publishes its next build as `PPE-Tomato-v1.0.3.jar`, continuing the
+`v1.0.2` release line. Run `./setup-gradle.sh` once if the Gradle wrapper is
+missing, then run `./build-all.sh`. The build requires the upstream
+`libs/RealmShark-v1.2.3.jar` dependency; the script reports the exact expected
+path when it is absent.
+
 Given RealmShark reads packets directly from the network adapter it can even be used to listen on a PC that is not running the game. It is an independent program from the game and is completely extendable/customizable.  
 
 Multiple instances of Realm of the Mad God are not supported using this sniffer.  

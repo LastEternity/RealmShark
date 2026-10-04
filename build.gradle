@@ -6,8 +6,9 @@ plugins {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-project.version = 'v1.9.2'
+project.version = 'v1.0.3'
 applicationName = 'Tomato'
+project.ext.archiveAppName = 'PPE-Tomato'
 
 project.ext.lwjglVersion = "3.3.1"
 project.ext.jomlVersion = "1.10.5"
@@ -71,7 +72,7 @@ shadowJar {
     manifest {
         attributes 'Main-Class': mainClassName
     }
-    archiveFileName = "${applicationName}-${project.version}.jar"
+    archiveFileName = "${archiveAppName}-${project.version}.jar"
 }
 
 apply plugin: 'com.github.johnrengelman.shadow'
