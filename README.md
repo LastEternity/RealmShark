@@ -7,10 +7,9 @@ RealmShark is a Java library/program created to read network packets at the kern
 
 This fork publishes its next build as `PPE-Tomato-v1.0.3.jar`, continuing the
 `v1.0.2` release line. Run `./setup-gradle.sh` once if the Gradle wrapper is
-missing, then run `./build-all.sh`. The build requires the upstream
-`libs/RealmShark-v1.2.3.jar` dependency; `build-all.sh` builds and installs it
-automatically from upstream when it is absent. Set `REALMSHARK_REPOSITORY` or
-`REALMSHARK_REF` to override the source repository or ref.
+missing, then run `./build-all.sh`. The RealmShark v1.2.3 packet library is
+vendored in `src/main/java` (`assets`, `packets`, `realmshark`, `util`) and is
+compiled together with Tomato, so no external jar or repository is required.
 
 Given RealmShark reads packets directly from the network adapter it can even be used to listen on a PC that is not running the game. It is an independent program from the game and is completely extendable/customizable.  
 
@@ -28,13 +27,13 @@ In the future, OS specific functionality will be added to support multiple insta
 
 ## Install guide
 
-If there are errors running the program described below, please check the [Discord](https://discord.gg/msKrWSD4Mf), the troubleshooting section below, or [open an issue here,](https://github.com/X-com/RealmShark/issues) so it can be resolved.
+If there are errors running the program described below, please check the [Discord](https://discord.gg/msKrWSD4Mf), the troubleshooting section below, or [open an issue here,](https://github.com/LastEternity/RealmShark/issues) so it can be resolved.
 
 ### For Windows:
 
 1. Java and Npcap is required for running the program. Java can be downloaded from [here](https://www.java.com/en/download/) and Npcap from [here](https://npcap.com/#download). Open the files one at a time and follow the install instructions for both.
 
-2. Download the latest `Tomato-v*.jar` file from [Releases](https://github.com/X-com/RealmShark/releases). Only need the *.jar file.
+2. Download the latest `Tomato-v*.jar` file from [Releases](https://github.com/LastEternity/RealmShark/releases). Only need the *.jar file.
 
 - Java download [image](https://user-images.githubusercontent.com/5974568/183230180-f9a66d31-2ed4-4073-8af2-cda12f271d01.png).
 - Npcap download [image](https://user-images.githubusercontent.com/5974568/183230181-b8eacef2-71f3-47f5-8d46-959eb1bb82bf.png).
@@ -68,7 +67,7 @@ If the Tomato-v*.jar file does nothing double clicking it after following the in
 4. Type "java -jar ". Make sure to add space after "-jar ".
 5. Press tab several times until the Tomato-v*.jar name appears. Then press Enter. [Example image](https://user-images.githubusercontent.com/5974568/183231024-a1e006b7-7dd0-43f3-8a99-4fdee3827f94.png)
 
-If the program starts without problems it means you have issues with your register keys. To fix your register to not need command prompt to start the program a simple jarfix is needed. If the program still doesn't start, report the bug in the [issues here](https://github.com/X-com/RealmShark/issues). Try to include as much information as possible in the report.
+If the program starts without problems it means you have issues with your register keys. To fix your register to not need command prompt to start the program a simple jarfix is needed. If the program still doesn't start, report the bug in the [issues here](https://github.com/LastEternity/RealmShark/issues). Try to include as much information as possible in the report.
 
 1. Download the jarfix from [here](https://johann.loefflmann.net/en/software/jarfix/index.html). Image of file [here](https://user-images.githubusercontent.com/5974568/183231327-ac0a33c7-edb4-41bb-897f-bb86fa9ab939.png).
 2. Run it as Administrator. Example of running the jarfix [here](https://user-images.githubusercontent.com/5974568/183231330-9d53b0b9-8288-4cab-a726-4095f3e3f479.png).
@@ -82,7 +81,7 @@ If you can start the program, but you can not see any chat messages from ingame 
 4. Follow this guide, link [here](https://tencomputer.com/npcap-loopback-adapter-no-internet/), for repairing your network interface (recommending to do the steps in inverted order starting with step 5). Do one step at a time and check if it fixes the problem before trying the next.
 5. If it still doesn't fix the problem follow a youtube guide to install a Loopback Adapter [here](https://www.youtube.com/watch?v=N3Ido5VEkNE).
 
-If any other problem shows up. Please report them in the issues tracker found [here](https://github.com/X-com/RealmShark/issues) to have it resolved. Make sure to include any console outputs, version of java installed (type "java -v" in console to get the version), windows version and other reproduction steps.
+If any other problem shows up. Please report them in the issues tracker found [here](https://github.com/LastEternity/RealmShark/issues) to have it resolved. Make sure to include any console outputs, version of java installed (type "java -v" in console to get the version), windows version and other reproduction steps.
 
 ## Building from source!
 
@@ -93,7 +92,7 @@ You will need an OpenJDK 8 SDK install from [here.](https://jdk.java.net/18/) If
 IntelliJ IDEA can be found [here](https://www.jetbrains.com/idea/download/#section=windows). Download the free community edition.
 
 Download the .zip or clone the repo via CLI:
-`git clone https://github.com/X-com/RealmShark && cd RealmShark`
+`git clone https://github.com/LastEternity/RealmShark && cd RealmShark`
 
 Open IntelliJ and click **File > New > Project from Existing Sources...**
 Navigate to the realm shark source folder and open build.gradle. Alternatively drag and drop the build.gradle into the IntelliJ window and then double click on it. IntelliJ will automatically install gradle and setup the project.
