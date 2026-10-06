@@ -8,8 +8,9 @@ RealmShark is a Java library/program created to read network packets at the kern
 This fork publishes its next build as `PPE-Tomato-v1.0.3.jar`, continuing the
 `v1.0.2` release line. Run `./setup-gradle.sh` once if the Gradle wrapper is
 missing, then run `./build-all.sh`. The build requires the upstream
-`libs/RealmShark-v1.2.3.jar` dependency; the script reports the exact expected
-path when it is absent.
+`libs/RealmShark-v1.2.3.jar` dependency; `build-all.sh` builds and installs it
+automatically from upstream when it is absent. Set `REALMSHARK_REPOSITORY` or
+`REALMSHARK_REF` to override the source repository or ref.
 
 Given RealmShark reads packets directly from the network adapter it can even be used to listen on a PC that is not running the game. It is an independent program from the game and is completely extendable/customizable.  
 
